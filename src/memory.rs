@@ -2,6 +2,11 @@ pub struct Ram {
     pub mem: [u8; 4096]
 }
 
+struct Digits{
+    Zero: [0b11110000, 0b10010000, 0b10010000, 0b10010000, 0b11110000], 
+
+}
+
 impl Ram {
     pub fn new() -> Ram {
         Ram {
