@@ -4,6 +4,7 @@ use chip8::Chip8;
 
 mod memory;
 mod chip8;
+mod cpu;
 
 fn main() {
     let digits = [0xF0, 0x90, 0x90, 0x90, 0xF0,
@@ -28,6 +29,10 @@ fn main() {
     let mut chip8 = Chip8::new();
     chip8.load_digits(&digits);
     chip8.load_cart(&rom);
+    for x in 0..rom.len()/2{
+        let word = chip8.read_from_memory();
+        chip8.call_cpu(word);
+    }
     //print!("{:#X?}", &chip8.ram.mem[0x200 as usize .. rom.len() as usize])
-    print!("{:X?}", &chip8.ram.mem[..])
+    //print!("{:X?}", &chip8.ram.mem[..])
 }

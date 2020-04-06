@@ -9,8 +9,8 @@ impl Ram {
         }
     }
 
-    pub fn read_byte(&mut self, address: u16) -> u8{
-        return self.mem[address as usize];
+    pub fn read_byte(&mut self, address: u16) -> u16{
+        return u16::from_le_bytes([self.mem[address as usize], self.mem[address as usize + 1]])
     }
 
     pub fn write_byte(&mut self, address: u16, word: u8){
