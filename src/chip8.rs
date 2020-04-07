@@ -34,6 +34,6 @@ impl Chip8 {
 
     pub fn call_cpu(&mut self, word: u16){
         self.cpu.exec_instr(word);
-        self.cpu.I += 2;
+        self.cpu.I += 1;
     }
 }

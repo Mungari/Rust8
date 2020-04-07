@@ -26,6 +26,9 @@ impl Cpu {
             0x00E0 => {
                 println!("FOUND CLS {:X?}", word);
             },
+            0x00EE => {
+                println!("FOUND RET {:X?}", word);
+            },
             n if n  & 0x1000 != 0 => {
                 println!("SET PC TO {:X?}", word);
             },
